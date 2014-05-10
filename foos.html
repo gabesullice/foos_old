@@ -1,0 +1,20 @@
+<head>
+  <title>E3 Foos</title>
+</head>
+
+<body>
+  <h1>Foos, elevated.</h1>
+  {{> player name="Player 1" color="blue" position="offense"}}
+  {{> player name="Player 2" color="blue" position="defense"}}
+  {{> player name="Player 3" color="yellow" position="defense"}}
+  {{> player name="Player 4" color="yellow" position="offense"}}
+</body>
+
+<template name="player">
+  <div class="player">
+    <h2>{{ name }}</h2>
+    <input name="ownGoal" type="button" value="Own Goal" />
+    <input type="text" value="Player Name" />
+    <input name="score" type="button" value="Score" />
+  </div>
+</template>
