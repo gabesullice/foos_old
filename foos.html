@@ -3,12 +3,11 @@
 </head>
 
 <body>
-  <h1>Foos, elevated.</h1>
   {{> game}}
 </body>
 
 <template name="game">
-  <div class="score">
+  <div class="scores">
     {{> score}}
   </div>
   <div class="players">
@@ -20,16 +19,12 @@
 
 <template name="player">
   <div class="player">
-    <h3>{{ name }}</h3>
-    <button class="ownGoal" id="{{id}}_ownGoal">Own Goal</button>
+    <button class="ownGoal score">{{ownGoals}}</button>
     <input class="name" id="{{id}}_name" type="text" placeholder="Player Name" />
-    <button class="score" id="{{id}}_score">Goal</button>
-    <h4>Goals</h4>
-    <p>Offensive: {{offGoals}} Defensive: {{defGoals}} Own: {{ownGoals}}</p>
+    <button class="goal score">{{goals}}</button>
   </div>
 </template>
 
 <template name="score">
-  <h3>Score:</h3>
-  <p>Yellow: {{scores.yellow}} Blue: {{scores.blue}}</p>
+<div class="score-container"><span class="score yellow">{{scores.yellow}}</span><span class="spacer"></span><span class="score blue">{{scores.blue}}</span></div>
 </template>

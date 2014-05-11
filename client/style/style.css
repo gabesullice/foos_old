@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Arial Black',Arial,sans-serif;
+  padding: 5%; }
+
+.scores {
+  text-align: center; }
+  .scores .spacer {
+    display: table-cell;
+    width: 2em; }
+
+.score-container {
+  display: inline-block; }
+
+.score {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2em;
+  font-weight: bold;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  color: white;
+  background-color: #FF4100; }
+  .score.yellow {
+    background-color: #FFC223; }
+  .score.blue {
+    background-color: #0082C6; }
+  .player .score {
+    border: none;
+    font-size: 1em; }
+
+.players {
+  overflow: auto; }
+
+.player {
+  float: left;
+  padding: 2em;
+  width: 50%;
+  text-align: center; }
+  .switched .player {
+    float: right; }
+
+h1 {
+  text-align: center; }

@@ -32,6 +32,7 @@ if (Meteor.isClient) {
     ownGoals: 0,
     offGoals: 0,
     defGoals: 0,
+    goals: function () { return this.offGoals + this.defGoals }, 
     mate: "p2",
     score: score
   },
@@ -43,6 +44,7 @@ if (Meteor.isClient) {
     ownGoals: 0,
     offGoals: 0,
     defGoals: 0,
+    goals: function () { return this.offGoals + this.defGoals }, 
     mate: "p1",
     score: score
   },
@@ -54,6 +56,7 @@ if (Meteor.isClient) {
     ownGoals: 0,
     offGoals: 0,
     defGoals: 0,
+    goals: function () { return this.offGoals + this.defGoals }, 
     mate: "p4",
     score: score
   }, {
@@ -64,6 +67,7 @@ if (Meteor.isClient) {
     ownGoals: 0,
     offGoals: 0,
     defGoals: 0,
+    goals: function () { return this.offGoals + this.defGoals }, 
     mate: "p3",
     score: score
   }
