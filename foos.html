@@ -4,17 +4,32 @@
 
 <body>
   <h1>Foos, elevated.</h1>
-  {{> player name="Player 1" color="blue" position="offense"}}
-  {{> player name="Player 2" color="blue" position="defense"}}
-  {{> player name="Player 3" color="yellow" position="defense"}}
-  {{> player name="Player 4" color="yellow" position="offense"}}
+  {{> game}}
 </body>
+
+<template name="game">
+  <div class="score">
+    {{> score}}
+  </div>
+  <div class="players">
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+  </div>
+</template>
 
 <template name="player">
   <div class="player">
-    <h2>{{ name }}</h2>
-    <input name="ownGoal" type="button" value="Own Goal" />
-    <input type="text" value="Player Name" />
-    <input name="score" type="button" value="Score" />
+    <h3>{{ name }}</h3>
+    <button class="ownGoal" id="{{id}}_ownGoal">Own Goal</button>
+    <input class="name" id="{{id}}_name" type="text" placeholder="Player Name" />
+    <button class="score" id="{{id}}_score">Goal</button>
+    <h4>Goals</h4>
+    <p>Offensive: {{offGoals}} Defensive: {{defGoals}} Own: {{ownGoals}}</p>
   </div>
+</template>
+
+<template name="score">
+  <h3>Score:</h3>
+  <p>Yellow: {{scores.yellow}} Blue: {{scores.blue}}</p>
 </template>
