@@ -1,0 +1,86 @@
+$break-small: 600px;
+
+* { box-sizing: border-box; }
+
+html {
+  background-color: grey;
+}
+
+body {
+  font-family: 'Arial Black',Arial,sans-serif;
+  margin: auto;
+  width: 600px;
+  padding: 10px;
+  background-color: #FFF;
+
+  @media (max-width: $break-small) {
+    width: 100%;
+    min-width: 275px;
+  }
+}
+
+#login-buttons {
+  float: right;
+}
+
+.scores {
+  text-align: center;
+
+  .spacer {
+    display: table-cell;
+    width: 2em;
+  }
+}
+
+.score-container {
+  display: inline-block;
+}
+
+.score {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2em;
+  font-weight: bold;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  color: white;
+  background-color: #FF4100;
+
+  &.yellow {
+    background-color: #FFC223;
+  }
+
+  &.blue {
+    background-color: #0082C6;
+  }
+
+  .player & {
+    border: none;
+    font-size: 1em;
+  }
+}
+
+.game {
+  width: 100%;
+  padding: 2em 0;
+  overflow: auto;
+}
+
+.player {
+  float: left;
+  padding: 0 2em;
+  width: 50%;
+  text-align: center;
+  min-height: 10em;
+
+  .switched & {
+    float: right;
+  }
+}
+
+.profile-pic {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}

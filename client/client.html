@@ -1,0 +1,45 @@
+<head>
+  <title>E3 Foos</title>
+</head>
+  
+<body>
+  {{> loginButtons align="right"}}
+  {{> games }}
+</body>
+
+<template name="games">
+  {{#if gameIdIs 'null'}}
+    <div class="preGame">{{> preGame }}</div>
+  {{else}}
+     <div class="game">{{> game }}</div>
+  {{/if}}
+</template>
+
+<template name="preGame">
+  <button class="new-game">New Game</button>
+  <ul>
+    {{#each games}}
+    <li>{{gameId}}: {{status}} {{#if status 'open'}}<button class="join-game" data-id="{{gameId}}">Join Game</button>{{/if}}<button class="delete" data-id="{{gameId}}">Delete</button></li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="game">
+  {{#each players}}
+      {{> player}}
+  {{/each}}
+</template>
+
+<template name="player">
+  {{#if user null}}
+    <div class="player">
+      <button class="join" data-id="{{id}}">Join</button>
+    </div>
+  {{else}}
+    <div class="player {{switched}}">
+      <button class="ownGoal score">{{ownGoals}}</button>
+      <img class="profile-pic" title="{{profile.profile.name}}" alt="{{profile.profile.name}}" src="{{profile.services.google.picture}}" />
+      <button class="goal score {{color}}">{{goals}}</button>
+    </div>
+  {{/if}}
+</template>
