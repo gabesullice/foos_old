@@ -1,7 +1,5 @@
 score = function (type, player) {
-  var posId = player.id;
-
-  var field ='players.' + posId; 
+  var field ='players.' + player.user; 
 
   switch (type) {
     case 'goal':

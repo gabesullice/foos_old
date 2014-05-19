@@ -4,18 +4,10 @@ Template.player.user = function (user) {
 
 Template.player.events = {
   'click button.join' : function (event) {
-    var game = Games.findOne({gameId: this.gameId});
-
-    var user = Meteor.user();
-    var uid = user._id;
-    var posId = event.currentTarget.dataset.id;
-    var field ='players.' + posId + '.user'; 
-
-    var set = {};
-    set[field] = uid;
-
-    if (user != null) {
-      Games.update({_id: game._id}, {$set : set});
+    if (Meteor.userId() != null) {
+      gameId = parseInt(Session.get('gameId'));
+      posId  = event.currentTarget.dataset.id;
+      Meteor.call('playerJoin', gameId, posId);
     }
   },
   'click button.ownGoal.score' : function () {
